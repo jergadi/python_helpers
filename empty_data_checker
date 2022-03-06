@@ -1,0 +1,9 @@
+def data_checker(raw_data):
+    try:
+        has_0_data = raw_data.get('payload', {}).get('data', {}).get('0', {}).get('final_data', {}) != {}
+        has_1_data = raw_data.get('payload', {}).get('data', {}).get('1', {}).get('final_data', {}) != {}
+        if has_0_data or has_1_data:
+            return True
+        return False
+    except AttributeError:
+        return False
